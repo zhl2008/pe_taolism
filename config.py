@@ -8,6 +8,8 @@ log_file = '/Users/haozigege/Desktop/ctf/softsec/pe_taolism/log.txt'
 
 regex_log_file = '/Users/haozigege/Desktop/ctf/softsec/pe_taolism/regex_log.txt'
 
+html_log_file = '/Users/haozigege/Desktop/ctf/softsec/pe_taolism/out.html'
+
 # str regex rules
 str_rules = [r"(\\\\|/)(etc|usr|var|proc|dev|home|root|Program Files|Windows|Microsoft)",
 r"(\.bash_history|\.bashrc|\.bash_profile|\.ssh|authorized_keys|rc\.d|cron\.d|\.conf|passwd|\.bat|\.ocx)",

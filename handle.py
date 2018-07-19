@@ -41,8 +41,10 @@ def handle_func(func_id):
 	str_regex(pcode,func_info)
 
 
-def gen_html():
-	pass
+def gen_html(tmp_info):
+	
+	
+	
 
 
 def str_regex(pcode,func_info):
@@ -87,7 +89,7 @@ def str_regex(pcode,func_info):
 			os.system('mkdir -p ' + regex_dir)
 		# record the regex result and the regex log at the same time
 		open(regex_dir + str(func_info['id']),'w').write(json.dumps(tmp_info))
-		record_info = str(func_info['id']) + ',' + func_info['start'] + ',' + func_info['end'] + ',' + ','.join(tmp) 
+		record_info = str(func_info['id']) + ',' + func_info['file_path'] + ',' +func_info['start'] + ',' + func_info['end'] + ',' + ','.join(tmp) 
 		open(config.regex_log_file,'a').write(record_info + "\n")
 
 	return res

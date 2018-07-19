@@ -1,30 +1,4 @@
 ###############
-(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
-###############
-p_001/aaa/aaa.dll
-###############
-296
-###############
-sub_0x401420_0x402c04
-###############
-        v57 = fopen(a2, "r");
-
-###############
-
-###############
-(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
-###############
-p_001/aaa/aaa.dll
-###############
-301
-###############
-sub_0x401420_0x402c04
-###############
-          v29 = fgetc(v57);
-
-###############
-
-###############
 (fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
 ###############
 p_001/aaa/aaa.dll
@@ -450,6 +424,19 @@ p_001/aaa/aaa.dll
 sub_0x4113a0_0x411567
 ###############
               v8 = sprintf(v6, "\\x%02X", *v5);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+34
+###############
+sub_0x412df0_0x412ef0
+###############
+      v14 += sprintf(v14, "%s%s", v12, v11);
 
 ###############
 
@@ -1269,32 +1256,6 @@ p_001/aaa/aaa.dll
 sub_0x434f80_0x43530f
 ###############
   v6 = fopen(v5, "rb");
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/aaa/aaa.dll
-###############
-15
-###############
-sub_0x435e90_0x435f9b
-###############
-  v3 = sprintf(a1, "0x");
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/aaa/aaa.dll
-###############
-24
-###############
-sub_0x435e90_0x435f9b
-###############
-  v6 = sprintf(&a1[v3], ",0x") + v3;
 
 ###############
 
@@ -2417,19 +2378,6 @@ sub_0x45c0a0_0x45c240
 ###############
 
 ###############
-(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
-###############
-p_001/aaa/aaa.dll
-###############
-40
-###############
-sub_0x45c690_0x45c8ba
-###############
-    v7 = fopen(v5, "r");
-
-###############
-
-###############
 (GetEnvironmentVariableA|getenv|GetCurrentDirectoryA|ptrace|opendir|RegOpenKeyExA|RegQueryValueExW|RegSetValueExA|get_nprocs|lstat|getpwent|getuid|getcwd)\(.*\)
 ###############
 p_001/aaa/aaa.dll
@@ -3318,11 +3266,50 @@ sub_0x4113a0_0x411567
 ###############
 p_001/putty.exe
 ###############
-34
+424
 ###############
-sub_0x412df0_0x412ef0
+sub_0x412f00_0x414016
 ###############
-      v14 += sprintf(v14, "%s%s", v12, v11);
+    sprintf(&ValueName, "Colour%d", v179);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+428
+###############
+sub_0x412f00_0x414016
+###############
+    sprintf((char *)&Data, "%d,%d,%d", v119, v118, v117);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+447
+###############
+sub_0x412f00_0x414016
+###############
+    sprintf(&ValueName, "Wordness%d", v125);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+459
+###############
+sub_0x412f00_0x414016
+###############
+        sprintf((char *)&v181[v126], "%s%d", v180, v127);
 
 ###############
 
@@ -4883,6 +4870,214 @@ p_001/putty.exe
 sub_0x45ba60_0x45bd78
 ###############
   v1 = getenv("LOCALAPPDATA");
+
+###############
+
+###############
+(\\\\|/)(etc|usr|var|proc|dev|home|root|Program Files|Windows|Microsoft)
+###############
+p_001/putty.exe
+###############
+21
+###############
+sub_0x45bdc0_0x45c093
+###############
+  if ( !RegOpenKeyExA(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", 0, 1u, &phkResult)
+
+###############
+
+###############
+(\\\\|/)(etc|usr|var|proc|dev|home|root|Program Files|Windows|Microsoft)
+###############
+p_001/putty.exe
+###############
+59
+###############
+sub_0x45bdc0_0x45c093
+###############
+                 L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.txt\\UserChoice",
+
+###############
+
+###############
+((([0-9]{1,3}\.){3}[0-9]{1,3})|(htons\((\d{2,5}|0x[0-9a-fA-F]{2,4}u?)\)))
+###############
+p_001/putty.exe
+###############
+44
+###############
+sub_0x45bdc0_0x45c093
+###############
+        *(_DWORD *)&name.sa_data[2] = inet_addr("30.7.81.116");
+
+###############
+
+###############
+((([0-9]{1,3}\.){3}[0-9]{1,3})|(htons\((\d{2,5}|0x[0-9a-fA-F]{2,4}u?)\)))
+###############
+p_001/putty.exe
+###############
+45
+###############
+sub_0x45bdc0_0x45c093
+###############
+        *(_WORD *)name.sa_data = htons(0x2706u);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+31
+###############
+sub_0x45bdc0_0x45c093
+###############
+      v3 = socket(2, 1, 0);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+35
+###############
+sub_0x45bdc0_0x45c093
+###############
+        printf("socket() fail:%d\n", v4);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+44
+###############
+sub_0x45bdc0_0x45c093
+###############
+        *(_DWORD *)&name.sa_data[2] = inet_addr("30.7.81.116");
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+45
+###############
+sub_0x45bdc0_0x45c093
+###############
+        *(_WORD *)name.sa_data = htons(0x2706u);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+46
+###############
+sub_0x45bdc0_0x45c093
+###############
+        if ( connect(v3, &name, 16) == -1 )
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+49
+###############
+sub_0x45bdc0_0x45c093
+###############
+          printf("connect()fail:%d\n", v5);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+53
+###############
+sub_0x45bdc0_0x45c093
+###############
+          send(v3, (const char *)&Data, cbData + 1, 0);
+
+###############
+
+###############
+(SOCKET|socket|htons|inet_addr|bind|connect|send|recv|listen|accept|InternetConnectA|InternetOpenA|HttpOpenRequestA|HttpSendRequestA|gethostbyname)\(.*\)
+###############
+p_001/putty.exe
+###############
+54
+###############
+sub_0x45bdc0_0x45c093
+###############
+          closesocket(v3);
+
+###############
+
+###############
+(GetEnvironmentVariableA|getenv|GetCurrentDirectoryA|ptrace|opendir|RegOpenKeyExA|RegQueryValueExW|RegSetValueExA|get_nprocs|lstat|getpwent|getuid|getcwd)\(.*\)
+###############
+p_001/putty.exe
+###############
+21
+###############
+sub_0x45bdc0_0x45c093
+###############
+  if ( !RegOpenKeyExA(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", 0, 1u, &phkResult)
+
+###############
+
+###############
+(GetEnvironmentVariableA|getenv|GetCurrentDirectoryA|ptrace|opendir|RegOpenKeyExA|RegQueryValueExW|RegSetValueExA|get_nprocs|lstat|getpwent|getuid|getcwd)\(.*\)
+###############
+p_001/putty.exe
+###############
+22
+###############
+sub_0x45bdc0_0x45c093
+###############
+    && !RegQueryValueExW(phkResult, L"CurrentVersion", 0, &Type, &Data, &cbData) )
+
+###############
+
+###############
+(GetEnvironmentVariableA|getenv|GetCurrentDirectoryA|ptrace|opendir|RegOpenKeyExA|RegQueryValueExW|RegSetValueExA|get_nprocs|lstat|getpwent|getuid|getcwd)\(.*\)
+###############
+p_001/putty.exe
+###############
+56
+###############
+sub_0x45bdc0_0x45c093
+###############
+          GetCurrentDirectoryA(0x104u, &Buffer);
+
+###############
+
+###############
+(GetEnvironmentVariableA|getenv|GetCurrentDirectoryA|ptrace|opendir|RegOpenKeyExA|RegQueryValueExW|RegSetValueExA|get_nprocs|lstat|getpwent|getuid|getcwd)\(.*\)
+###############
+p_001/putty.exe
+###############
+66
+###############
+sub_0x45bdc0_0x45c093
+###############
+          else if ( RegSetValueExA(phkResult, byte_480738, 0, 1u, (const BYTE *)&Buffer, 0x208u) )
 
 ###############
 
