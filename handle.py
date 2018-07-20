@@ -46,23 +46,29 @@ def handle_func(func_id):
 
 def gen_html(tmp_info):
 	func_info = tmp_info['func_info']
-	tmp = '''<div class="panel-heading">
-        	<h3 class="panel-title">ID : %s</h3>
+	color = ['#96de78','#efef70','#7ccdec']
+	human = ['haozi','craso','cm']
+	tmp = '''<div class="panel-heading" style="background-color:%s">
+        	<h3 class="panel-title">ID(%s) : %s</h3>
 			</div>
 			<div class="panel-body">
-			''' % str(func_info['id'])
+			''' % (color[func_info['id']%3],human[func_info['id']%3],str(func_info['id']))
 
 	for i in range(len(tmp_info['regex_info'])):
 		match = tmp_info['regex_info'][i]
 		print match
+
+		# real pcode path
+
+
 		tmp += '''<div>
 					<p>字符串：'''+ match['content'] +'''</p><a data-toggle="collapse" data-parent="#accordion" href="#collapse'''+str(func_info['id']) + '_' + str(i)+'''" aria-expanded="false" class="collapsed">查看详情</a>
-					<button class="btn" data-clipboard-text="%s	%s	%s''' %(func_info['file_path'],func_info['start'],func_info['end'])
+					<button class="btn" data-clipboard-text="%s	%s	%s	%s''' %(str(func_info['id']),func_info['file_path'],func_info['start'],func_info['end'])
 		tmp += '''">
 				复制结果
 			</button>
 			<div id="collapse'''+str(func_info['id']) + '_' + str(i)+'''" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-				<div class="alert alert-info">文件路径 : <a href="http://%s/f.php?f=%s" target="_blank" >%s</a>''' %( config.ip_addr,'test',func_info['file_path'])
+				<div class="alert alert-info">文件路径 : <a href="http://%s/f.php?f=%s" target="_blank" >%s</a>''' %( config.ip_addr,os.getcwd().replace(config.main_path,'') + '/' + str(func_info['id']) + '_pcode' ,func_info['file_path'])
 		tmp +='''<br>
 					匹配规则 : ''' + config.regex_rules[match['rule']]
 		tmp +='''<br>
