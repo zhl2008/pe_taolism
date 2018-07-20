@@ -1,4 +1,30 @@
 ###############
+(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+296
+###############
+sub_0x401420_0x402c04
+###############
+        v57 = fopen(a2, "r");
+
+###############
+
+###############
+(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+301
+###############
+sub_0x401420_0x402c04
+###############
+          v29 = fgetc(v57);
+
+###############
+
+###############
 (fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
 ###############
 p_001/aaa/aaa.dll
@@ -1264,6 +1290,32 @@ sub_0x434f80_0x43530f
 ###############
 p_001/aaa/aaa.dll
 ###############
+15
+###############
+sub_0x435e90_0x435f9b
+###############
+  v3 = sprintf(a1, "0x");
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+24
+###############
+sub_0x435e90_0x435f9b
+###############
+  v6 = sprintf(&a1[v3], ",0x") + v3;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
 40
 ###############
 sub_0x435fa0_0x436137
@@ -1858,6 +1910,149 @@ sub_0x455e30_0x45606f
 ###############
 
 ###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+413
+###############
+sub_0x456200_0x457650
+###############
+          return &v4[sprintf(v4, "\x1BO%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+415
+###############
+sub_0x456200_0x457650
+###############
+          return &v4[sprintf(v4, "\x1B?%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+416
+###############
+sub_0x456200_0x457650
+###############
+        return &v4[sprintf(v4, "\x1B%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+598
+###############
+sub_0x456200_0x457650
+###############
+      return (int)&v4[sprintf(v4, "\x1B%c", byte_48DEC4[v19]) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+651
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, "\x1B[%c", v44[v21]) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+663
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1B[%c", *(&v53 + v19));
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+680
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, "\x1B[[%c", v19 + 54) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+687
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1B%c", v32);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+689
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1BO%c", v32);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+699
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, v24) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+704
+###############
+sub_0x456200_0x457650
+###############
+      return (int)&v4[sprintf(v4, "\x1B[%d~", v19) - v40];
+
+###############
+
+###############
 (\.bash_history|\.bashrc|\.bash_profile|\.ssh|authorized_keys|rc\.d|cron\.d|\.conf|passwd|\.bat|\.ocx)
 ###############
 p_001/aaa/aaa.dll
@@ -2374,6 +2569,19 @@ p_001/aaa/aaa.dll
 sub_0x45c0a0_0x45c240
 ###############
   closesocket(v1);
+
+###############
+
+###############
+(fopen|fread|fgetc|fgets|CopyFileA)\(.*\)
+###############
+p_001/aaa/aaa.dll
+###############
+40
+###############
+sub_0x45c690_0x45c8ba
+###############
+    v7 = fopen(v5, "r");
 
 ###############
 
@@ -3214,19 +3422,6 @@ sub_0x40fb90_0x410013
 ###############
 p_001/putty.exe
 ###############
-297
-###############
-sub_0x4102e0_0x410ab2
-###############
-                  sprintf(&v51[strlen(v51)], "Unrecognised SOCKS error code %d", SBYTE1(v52));
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/putty.exe
-###############
 172
 ###############
 sub_0x410ae0_0x411328
@@ -3266,50 +3461,11 @@ sub_0x4113a0_0x411567
 ###############
 p_001/putty.exe
 ###############
-424
+34
 ###############
-sub_0x412f00_0x414016
+sub_0x412df0_0x412ef0
 ###############
-    sprintf(&ValueName, "Colour%d", v179);
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/putty.exe
-###############
-428
-###############
-sub_0x412f00_0x414016
-###############
-    sprintf((char *)&Data, "%d,%d,%d", v119, v118, v117);
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/putty.exe
-###############
-447
-###############
-sub_0x412f00_0x414016
-###############
-    sprintf(&ValueName, "Wordness%d", v125);
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/putty.exe
-###############
-459
-###############
-sub_0x412f00_0x414016
-###############
-        sprintf((char *)&v181[v126], "%s%d", v180, v127);
+      v14 += sprintf(v14, "%s%s", v12, v11);
 
 ###############
 
@@ -4705,6 +4861,149 @@ sub_0x455e30_0x45606f
 ###############
 
 ###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+413
+###############
+sub_0x456200_0x457650
+###############
+          return &v4[sprintf(v4, "\x1BO%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+415
+###############
+sub_0x456200_0x457650
+###############
+          return &v4[sprintf(v4, "\x1B?%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+416
+###############
+sub_0x456200_0x457650
+###############
+        return &v4[sprintf(v4, "\x1B%c", v17)] - v15;
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+598
+###############
+sub_0x456200_0x457650
+###############
+      return (int)&v4[sprintf(v4, "\x1B%c", byte_48DEC4[v19]) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+651
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, "\x1B[%c", v44[v21]) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+663
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1B[%c", *(&v53 + v19));
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+680
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, "\x1B[[%c", v19 + 54) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+687
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1B%c", v32);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+689
+###############
+sub_0x456200_0x457650
+###############
+        v22 = sprintf(v4, "\x1BO%c", v32);
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+699
+###############
+sub_0x456200_0x457650
+###############
+        return (int)&v4[sprintf(v4, v24) - v40];
+
+###############
+
+###############
+(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
+###############
+p_001/putty.exe
+###############
+704
+###############
+sub_0x456200_0x457650
+###############
+      return (int)&v4[sprintf(v4, "\x1B[%d~", v19) - v40];
+
+###############
+
+###############
 (\.bash_history|\.bashrc|\.bash_profile|\.ssh|authorized_keys|rc\.d|cron\.d|\.conf|passwd|\.bat|\.ocx)
 ###############
 p_001/putty.exe
@@ -5429,19 +5728,6 @@ p_001/putty.exe
 sub_0x463e00_0x463eb7
 ###############
     v8 = GetCurrentDirectoryA(0x104u, lpBuffer);
-
-###############
-
-###############
-(fwrite|fputc|fputs|fprintf|fscanf|sprintf|CopyFileA)\(.*\)
-###############
-p_001/putty.exe
-###############
-62
-###############
-sub_0x464390_0x4644f2
-###############
-    sprintf((char *)(v3[4] + 2 * v12), "%02x", *(unsigned __int8 *)(v3[1] + v12));
 
 ###############
 

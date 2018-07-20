@@ -10,6 +10,9 @@ os.system('rm ' + config.log_file)
 # clean regex_log.txt
 os.system('rm ' + config.regex_log_file)
 
+# clean out.html
+os.system('rm ' + config.html_log_file)
+
 # clean everything in project file
 for my_dir in os.listdir(config.runtime_path):
     if os.path.isdir(config.runtime_path + my_dir):

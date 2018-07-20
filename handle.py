@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import re
 import os
@@ -8,6 +9,8 @@ import config
 from function import *
 import time
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 def main_handle(my_dir):
@@ -42,7 +45,36 @@ def handle_func(func_id):
 
 
 def gen_html(tmp_info):
-	
+	func_info = tmp_info['func_info']
+	tmp = '''<div class="panel-heading">
+        	<h3 class="panel-title">ID : %s</h3>
+			</div>
+			<div class="panel-body">
+			''' % str(func_info['id'])
+
+	for i in range(len(tmp_info['regex_info'])):
+		match = tmp_info['regex_info'][i]
+		print match
+		tmp += '''<div>
+					<p>字符串：'''+ match['content'] +'''</p><a data-toggle="collapse" data-parent="#accordion" href="#collapse'''+str(func_info['id']) + '_' + str(i)+'''" aria-expanded="false" class="collapsed">查看详情</a>
+					<button class="btn" data-clipboard-text="%s	%s	%s''' %(func_info['file_path'],func_info['start'],func_info['end'])
+		tmp += '''">
+				复制结果
+			</button>
+			<div id="collapse'''+str(func_info['id']) + '_' + str(i)+'''" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+				<div class="alert alert-info">文件路径 : <a href="http://%s/f.php?f=%s" target="_blank" >%s</a>''' %( config.ip_addr,'test',func_info['file_path'])
+		tmp +='''<br>
+					匹配规则 : ''' + config.regex_rules[match['rule']]
+		tmp +='''<br>
+					匹配行数 : ''' + str(match['line'])
+		tmp +='''<br>
+					函数名 : ''' + 'sub_' + func_info['start'] + '_' + func_info['end']
+		tmp +='''<br>
+				匹配内容 : ''' + match['content'] + '''<br>
+			</div>
+		</div>
+	</div>'''
+	return tmp + '</div>'
 	
 	
 
@@ -92,6 +124,8 @@ def str_regex(pcode,func_info):
 		record_info = str(func_info['id']) + ',' + func_info['file_path'] + ',' +func_info['start'] + ',' + func_info['end'] + ',' + ','.join(tmp) 
 		open(config.regex_log_file,'a').write(record_info + "\n")
 
+		open(config.html_log_file,'a').write(gen_html(tmp_info))
+
 	return res
 
 
@@ -99,6 +133,9 @@ def str_regex(pcode,func_info):
 if __name__ == '__main__':
 	os.chdir(config.runtime_path)
 	my_dirs = os.listdir('./')
+	# if the file content of html log is empty, then write the html header
+	if not os.path.isfile(config.html_log_file) or open(config.html_log_file,'r').read().strip() == '':
+		open(config.html_log_file,'w').write(config.html_headers)
 	for my_dir in my_dirs:
 		if my_dir[:2] == 'p_':
 			main_handle(my_dir)
