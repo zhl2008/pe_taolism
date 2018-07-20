@@ -12,7 +12,7 @@ def check_path(filepath):
 		return True
 	sys.exit('[!] filepath:%s not exists'%filepath)
 
-wb = load_workbook("2.xlsx")
+wb = load_workbook("res.xlsx")
 print(wb.sheetnames)
 sheet_lee = wb.get_sheet_by_name("1")
 sheet_ins = wb.get_sheet_by_name("2")
@@ -20,46 +20,28 @@ sheet_haozi = wb.get_sheet_by_name("3")
 
 sheets = [sheet_lee,sheet_ins,sheet_haozi]
 
-res = ''
+res = {}
 
 for sheet in sheets:
-	projects = sheet['A']
-	vulnerables = sheet['B']
-	filepaths = sheet['C']
-	functions = sheet['D']
+	filename = sheet['A']
+	begin = sheet['B']
+	end = sheet['C']
 
 	# the length of all columns should be the same
-	assert len(projects)==len(vulnerables)
-	assert len(vulnerables)==len(filepaths)
-	assert len(filepaths)==len(functions)
+	assert len(filename)==len(begin)
+	assert len(begin)==len(end)
 
-	for i in range(len(projects)):
-		if not i==0 and projects[i].value and vulnerables[i].value:
-			# pre handle
-                        project = projects[i].value.strip().replace("_x000D_","")
-			vulnerable = vulnerables[i].value.strip()
-			if filepaths[i].value:
-				filepath = filepaths[i].value.strip()
-			else:
-				filepath = ''
+	for i in range(len(filename)):
+            if res.has_key(filename[i].value):
+                res[filename[i].value].append({"begin":begin[i],"end":end[i]})
+            else:
+                res[filename[i].value] = []
 
-			if not functions[i].value:
-				function = ''
-			else:
-				function = functions[i].value.strip()
 
-			if filepath:
-				check_path(filepath)
 
-			if vulnerable=='yes':
-				res += project + ':' + vulnerable + ',' + filepath + ',' + function + '\n'
-			elif vulnerable=='no':
-				res += project + ':' + vulnerable + ',,' + '\n'
-			else:
-				sys.exit('[!] wtf?')
 
-	print res
-	open('submit.txt','w').write(res)
+print res
+open('submit.txt','w').write(json.dumps(res))
 
 
 
